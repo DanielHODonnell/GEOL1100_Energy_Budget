@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earth's Energy Budget</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f8ff;
+      background:black url(http://fc01.deviantart.net/fs71/f/2012/160/b/9/stars_by_paulinemoss-d52un4e.jpg);
+      animation: stars 205s linear alternate;
+    }
+
+    .container {
+      position: relative;
+      text-align: center;
+    }
+
+    /*Earth design*/
+    #box {
+    background:url(https://cdn.rawgit.com/ManzDev/cursos-assets/gh-pages/css3/earth-2.jpg);
+    background-size:cover;
+    align-self: 0,0,0;
+    border:2px solid #000;
+    border-radius:50%;
+    width:200px;
+    height:200px;
+    animation: motion 5s linear 0s infinite;
+    box-shadow: 0 0 25px RGBA(255,255,255, 0.10),
+                -8px -8px 15px #000 inset,
+                2px 2px 25px #000 inset,
+                -45px -45px 25px RGBA(0,0,0, 0.5) inset, 
+                25px 25px 45px RGBA(0,0,0, 0.45) inset;
+    margin:6em auto;
+    transform:rotateX(6deg) rotateY(6deg) rotateZ(6deg);
+    }
+
+    @keyframes motion {
+    0% { background-position:0 0 }
+    100% { background-position:355px 0 }
+    }
+
+    @keyframes stars {
+    0% { background-position:0 0 }
+    100% { background-position:0 100% }
+    }
+
+    /*Sun design*/
+    .sun {
+      width: 80px;
+      height: 80px;
+      background-color: #ffd700;
+      border-radius: 50%;
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+
+    /*Arrow Body*/
+    .arrow {
+      position: absolute;
+      width: 2px;
+      background-color: #fff;
+    }
+
+    /*Arrow head*/
+    .arrow::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid #fff;
+      border-right: 2px solid #fff;
+      transform: rotate(-226deg);
+      top: 78px;
+      left: -4.2px;
+    }
+
+    /*Arrow for incoming solar radiation*/
+    .incoming {
+      top: -10px;
+      left: 50%;
+      height: 80px;
+      background-color: #ffd700;
+      transform: translateX(-50%);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+
+    .incoming::after {
+        border-top: 2px solid #ffd700;
+        border-right: 2px solid #ffd700;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+
+    /*Arrow for reflected energy*/
+    .reflected {
+      top: 30px;
+      left: 20%;
+      rotate: -20deg;
+      height: 80px;
+      transform: translateX(-50%) rotate(180deg);
+    }
+
+    /*Arrow for absorbed solar radiation on the surface*/
+    .absorbed-surface {
+      top: 310px;
+      left: 70%;
+      height: 80px;
+      transform: translateX(-50%) rotate(166deg);
+    }
+    
+    /*Arrow for absorbed solar radiation in atm*/
+    .absorbed-atmosphere {
+      top: 310px;
+      right: 90%;
+      height: 80px;
+      transform: translateX(-50%) rotate(-150deg);
+    }
+
+    /*Arrow for outgoing longwave radiation*/
+    .outgoing {
+      top: 40px;
+      right: 10%;
+      rotate: 20deg;
+      height: 80px;
+      transform: translateX(-50%) rotate(190deg);
+    }
+
+    .label {
+      position: absolute;
+      font-size: 12px;
+      color: #fff;
+    }
+
+    .label-incoming {
+        top: -10px;
+        left: 70%;
+        transform: translateX(-50%);
+        color: #ffd700;
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+
+    .label-reflected {
+        top: 40px;
+        right: 60%;
+        rotate: -20deg;
+        transform: translateX(-50%);
+    }
+
+    .label-absorbed-surface {
+        top: 400px;
+        right: -60%;
+    }
+
+    .label-absorbed-atmosphere {
+        top: 390px;
+        left: -70%;
+    }
+
+    .label-outgoing {
+      top: 70px;
+      left: 110%;
+      rotate: 20deg;
+      transform: translateX(-50%);
+    }
+
+    .label-sun {
+        top: -100px;
+        left: 70%;
+        color: #ffd700;
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sun -->
+    <div class = "label label-sun">Sun</div>
+    <div class="sun"></div>
+
+    <!-- Earth -->
+    <div id="box"></div>
+
+    <!-- Arrows -->
+    <div class="arrow incoming"></div>
+    <div class="arrow reflected"></div>
+    <div class="arrow absorbed-surface"></div>
+    <div class="arrow absorbed-atmosphere"></div>
+    <div class="arrow outgoing"></div>
+
+    <!-- Labels -->
+    <div class="label label-incoming">Incoming Solar Radiation (340.4 W/m²)</div>
+    <div class="label label-reflected">Reflected by Clouds, Atmosphere, and Surface (102 W/m²)</div>
+    <div class="label label-absorbed-surface">Absorbed by Surface (161 W/m²)</div>
+    <div class="label label-absorbed-atmosphere">Absorbed by Atmosphere (78 W/m²)</div>
+    <div class="label label-outgoing">Outgoing Longwave Radiation (239.9 W/m²)</div>
+  </div>
+</body>
+</html>
